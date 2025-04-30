@@ -29,9 +29,12 @@ class _LoopClassState extends State<LoopClass> {
                   children: [
                     Text("Item${i + 1}"),
                     CircleAvatar(
-                      radius: 5,
+                      radius: 8,
                       backgroundColor: Colors.green,
-                      child: Text("${i + 1}"),
+                      child: Text(
+                        "${i + 1}",
+                        style: TextStyle(color: Colors.white, fontSize: 10),
+                      ),
                     )
                   ],
                 ),
