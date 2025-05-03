@@ -154,6 +154,26 @@ class _LoopClassState extends State<LoopClass> {
     'assets/fike.jpg',
     'assets/fatii.jpg',
   ];
+  List<String> circle = [
+    '8',
+    '18',
+    '12',
+    '30',
+    '2',
+    '13',
+    '6',
+    '10',
+    '36',
+    '4',
+    '19',
+    '10',
+    '73',
+    '9',
+    '54',
+    '20',
+    '12',
+    '5',
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -164,6 +184,18 @@ class _LoopClassState extends State<LoopClass> {
               leading: CircleAvatar(
                 backgroundImage: AssetImage(images[index]),
               ),
+              title: Text('${title[index]}'), //Text(title[index]),
+              subtitle: Text('${subTitle[index]}'), //Text(subTitle[index]),
+              trailing: Column(
+                children: [
+                  Text('$time'),
+                  CircleAvatar(
+                    radius: 8,
+                    backgroundColor: Colors.green.shade300,
+                    child: Text('circle'),
+                  )
+                ],
+              ), //Text(time[index]),
             );
           }),
     );
