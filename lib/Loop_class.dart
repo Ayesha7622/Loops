@@ -134,7 +134,7 @@ class _LoopClassState extends State<LoopClass> {
     '5:30 pm',
     '2:15 am',
   ];
-  List<String> assets = [
+  List<String> images = [
     'assets/woww.jpg',
     'assets/rain.jpg',
     'assets/pgll.jpg',
@@ -156,6 +156,16 @@ class _LoopClassState extends State<LoopClass> {
   ];
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body: ListView.builder(
+          itemCount: title.length,
+          itemBuilder: (context, index) {
+            return ListTile(
+              leading: CircleAvatar(
+                backgroundImage: AssetImage(images[index]),
+              ),
+            );
+          }),
+    );
   }
 }
