@@ -74,7 +74,7 @@ class LoopClass extends StatefulWidget {
 }
 
 class _LoopClassState extends State<LoopClass> {
-  List<String> title = [
+  List<String> name = [
     'Aisha',
     'Fatima',
     'Hoorwish',
@@ -94,7 +94,7 @@ class _LoopClassState extends State<LoopClass> {
     'Amna',
     'Naina',
   ];
-  List<String> subTitle = [
+  List<String> subName = [
     'Ok ..thk h tm w8 kro',
     'Yaarrr m sochun g...',
     'As u Wish',
@@ -177,22 +177,26 @@ class _LoopClassState extends State<LoopClass> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.blueGrey,
       body: ListView.builder(
-          itemCount: title.length,
-          itemBuilder: (context, index) {
+          itemCount: name.length,
+          itemBuilder: (context, i) {
             return ListTile(
               leading: CircleAvatar(
-                backgroundImage: AssetImage(images[index]),
+                backgroundImage: AssetImage(images[i]),
               ),
-              title: Text('${title[index]}'), //Text(title[index]),
-              subtitle: Text('${subTitle[index]}'), //Text(subTitle[index]),
+              title: Text('${name[i]}'), //Text(title[index]),
+              subtitle: Text('${subName[i]}'), //Text(subTitle[index]),
               trailing: Column(
                 children: [
                   Text('$time'),
                   CircleAvatar(
                     radius: 8,
                     backgroundColor: Colors.green.shade300,
-                    child: Text('circle'),
+                    child: Text(
+                      'circle',
+                      style: TextStyle(color: Colors.white),
+                    ),
                   )
                 ],
               ), //Text(time[index]),
