@@ -10,17 +10,10 @@ class InstaClass extends StatefulWidget {
 class _InstaClassState extends State<InstaClass> {
   @override
   List<String> name = [
-    'Alina',
-    'Ishal',
-    'Reema',
-    'Zahra',
-    'Rumaisa',
-    'Hira',
-    'Zainii',
-    'Hamna',
-    'Bushra',
-    'Amna',
-    'Naina',
+    'Alina', 'Ishal', 'Reema', 'Zahra', 'Rumaisa', 'Hira', 'Zainii', 'Hamna',
+    'Bushra', 'Amna', 'Naina',
+
+    // 'Ishal',
   ];
   List<String> images = [
     'assets/naaaai.jpg',
@@ -39,6 +32,7 @@ class _InstaClassState extends State<InstaClass> {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
+        backgroundColor: Colors.black,
         title: Text(
           "Instagram",
           style: TextStyle(
@@ -49,13 +43,31 @@ class _InstaClassState extends State<InstaClass> {
             Icons.favorite_border,
             color: Colors.white,
           ),
-          Icon(Icons.chat_bubble_outline_outlined)
+          Icon(
+            Icons.chat_bubble_outline_outlined,
+            color: Colors.white,
+          )
         ],
       ),
       body: ListView.builder(
           itemCount: name.length,
           itemBuilder: (context, i) {
-            return ListTile();
+            return Row(
+              children: [
+                Column(
+                  children: [
+                    CircleAvatar(
+                      radius: 30,
+                      backgroundImage: AssetImage(images[i]),
+                    ),
+                    Text(
+                      "${name[i]}",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ],
+                ),
+              ],
+            );
           }),
     );
   }
