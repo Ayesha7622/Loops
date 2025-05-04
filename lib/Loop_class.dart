@@ -177,7 +177,24 @@ class _LoopClassState extends State<LoopClass> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueGrey,
+      backgroundColor: const Color.fromARGB(255, 22, 23, 23),
+      appBar: AppBar(
+        title: Text(
+          "WhatsApp",
+          style: TextStyle(
+              fontSize: 20, color: Colors.white, fontWeight: FontWeight.w600),
+        ),
+        actions: [
+          Icon(
+            Icons.camera_alt,
+            color: Colors.white,
+          ),
+          Icon(
+            Icons.more_vert,
+            color: Colors.white,
+          )
+        ],
+      ),
       body: ListView.builder(
           itemCount: name.length,
           itemBuilder: (context, i) {
@@ -185,17 +202,27 @@ class _LoopClassState extends State<LoopClass> {
               leading: CircleAvatar(
                 backgroundImage: AssetImage(images[i]),
               ),
-              title: Text('${name[i]}'), //Text(title[index]),
-              subtitle: Text('${subName[i]}'), //Text(subTitle[index]),
+              title: Text(
+                '${name[i]}',
+                style: TextStyle(color: Colors.white),
+              ), //Text(title[index]),
+              subtitle: Text(
+                '${subName[i]}',
+                style:
+                    TextStyle(color: const Color.fromARGB(255, 132, 130, 130)),
+              ), //Text(subTitle[index]),
               trailing: Column(
                 children: [
-                  Text('${time[i]}'),
+                  Text('${time[i]}',
+                      style: TextStyle(
+                        color: const Color.fromARGB(255, 132, 130, 130),
+                      )),
                   CircleAvatar(
                     radius: 8,
                     backgroundColor: Colors.green.shade300,
                     child: Text(
-                      'circle',
-                      style: TextStyle(color: Colors.white),
+                      '${circle[i]}',
+                      style: TextStyle(color: Colors.black, fontSize: 10),
                     ),
                   )
                 ],
