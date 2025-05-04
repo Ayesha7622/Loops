@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:loops/Loop_class.dart';
+import 'package:loops/insta.dart';
 
 void main() {
   runApp(const MyApp());
@@ -33,7 +34,8 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: LoopClass(),
+      //home: LoopClass(),
+      home: InstaClass(),
     );
   }
 }
