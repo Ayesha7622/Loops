@@ -189,7 +189,7 @@ class _LoopClassState extends State<LoopClass> {
               subtitle: Text('${subName[i]}'), //Text(subTitle[index]),
               trailing: Column(
                 children: [
-                  Text('$time'),
+                  Text('${time[i]}'),
                   CircleAvatar(
                     radius: 8,
                     backgroundColor: Colors.green.shade300,
