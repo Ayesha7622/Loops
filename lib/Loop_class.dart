@@ -179,19 +179,26 @@ class _LoopClassState extends State<LoopClass> {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 22, 23, 23),
       appBar: AppBar(
+        backgroundColor: Colors.black,
         title: Text(
           "WhatsApp",
           style: TextStyle(
-              fontSize: 20, color: Colors.white, fontWeight: FontWeight.w600),
+              fontSize: 30, color: Colors.white, fontWeight: FontWeight.w600),
         ),
         actions: [
-          Icon(
-            Icons.camera_alt,
-            color: Colors.white,
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Icon(
+              Icons.camera_alt,
+              color: Colors.white,
+            ),
           ),
-          Icon(
-            Icons.more_vert,
-            color: Colors.white,
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Icon(
+              Icons.more_vert,
+              color: Colors.white,
+            ),
           )
         ],
       ),
