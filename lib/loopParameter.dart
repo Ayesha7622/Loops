@@ -8,7 +8,7 @@ class ParameterLoop extends StatefulWidget {
 }
 
 class _ParameterLoopState extends State<ParameterLoop> {
-  List<String> title = [
+  List<String> name = [
     'Aisha',
     'Fatima',
     'Hoorwish',
@@ -112,7 +112,7 @@ class _ParameterLoopState extends State<ParameterLoop> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView.builder(
-          itemCount: title.length,
+          itemCount: name.length,
           itemBuilder: (context, index) {
             return ListTile(
               onTap: () {
@@ -120,7 +120,7 @@ class _ParameterLoopState extends State<ParameterLoop> {
                     context,
                     MaterialPageRoute(
                       builder: (context) => ChildClass(
-                        name: title[index],
+                        name: name[index],
                         subTitle: subTitle[index],
                         images: images[index],
                         time: time[index],
@@ -129,8 +129,17 @@ class _ParameterLoopState extends State<ParameterLoop> {
                     ));
               },
               leading: CircleAvatar(),
-              title: Text(title[index]),
+              title: Text(name[index]),
               subtitle: Text(subTitle[index]),
+              trailing: Column(
+                children: [
+                  CircleAvatar(
+                    radius: 10,
+                    child: Text(numbers[index]), //(numbers),
+                  ),
+                  Text(time[index]),
+                ],
+              ),
             );
           }),
     );
@@ -154,12 +163,17 @@ class ChildClass extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(subTitle),
-      ),
-      body: Center(
-        child: Text(name),
-      ),
-    );
+        appBar: AppBar(title: Text(name)),
+        body: Column(
+          children: [
+            Container(
+              height: 60,
+              width: 200,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10), color: Colors.grey),
+              child: Text(subTitle),
+            )
+          ],
+        ));
   }
 }
