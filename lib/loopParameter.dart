@@ -168,12 +168,19 @@ class ChildClass extends StatelessWidget {
         appBar: AppBar(title: Text(name)),
         body: Column(
           children: [
-            Container(
-              height: 60,
-              width: 200,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10), color: Colors.grey),
-              child: Text(subTitle),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                height: 60,
+                width: 200,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.grey),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(subTitle),
+                ),
+              ),
             )
           ],
         ));
