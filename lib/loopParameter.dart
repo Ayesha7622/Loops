@@ -136,8 +136,11 @@ class _ParameterLoopState extends State<ParameterLoop> {
               trailing: Column(
                 children: [
                   CircleAvatar(
-                    radius: 10,
-                    child: Text(numbers[index]), //(numbers),
+                    radius: 9,
+                    child: Text(
+                      numbers[index],
+                      style: TextStyle(fontSize: 10),
+                    ), //(numbers),
                   ),
                   Text(time[index]),
                 ],
