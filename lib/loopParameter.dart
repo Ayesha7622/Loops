@@ -128,7 +128,9 @@ class _ParameterLoopState extends State<ParameterLoop> {
                       ),
                     ));
               },
-              leading: CircleAvatar(),
+              leading: CircleAvatar(
+                backgroundImage: AssetImage(images[index]),
+              ),
               title: Text(name[index]),
               subtitle: Text(subTitle[index]),
               trailing: Column(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:loops/Loop_class.dart';
 import 'package:loops/insta.dart';
+import 'package:loops/loopParameter.dart';
 
 void main() {
   runApp(const MyApp());
@@ -35,7 +36,8 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       //home: LoopClass(),
-      home: InstaClass(),
+      //home: InstaClass(),
+      home: ParameterLoop(),
     );
   }
 }
