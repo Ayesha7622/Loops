@@ -168,7 +168,12 @@ class ChildClass extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text(name)),
+        appBar: AppBar(
+          leading: CircleAvatar(
+            backgroundImage: AssetImage(images),
+          ),
+          title: Text(name),
+        ),
         body: Column(
           children: [
             Padding(
