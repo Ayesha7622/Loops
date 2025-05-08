@@ -169,25 +169,19 @@ class ChildClass extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          leading: Icon(Icons.arrow_back),
-          title: Row(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Icon(Icons.arrow_back),
+          //leading: Icon(Icons.arrow_back),
+          title: Row(children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: CircleAvatar(
+                backgroundImage: AssetImage(images),
               ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: CircleAvatar(
-                  backgroundImage: AssetImage(images),
-                ),
-              ),
-              Text(
-                name,
-                style: TextStyle(fontSize: 20),
-              ),
-            ],
-          ),
+            ),
+            Text(
+              name,
+              style: TextStyle(fontSize: 20),
+            ),
+          ]),
         ),
         body: Column(
           children: [
