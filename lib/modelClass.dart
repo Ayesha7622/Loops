@@ -77,7 +77,7 @@ class _ClassModelState extends State<ClassModel> {
     ChatsModel(
         name: 'Noor',
         subName: 'hn alhadulillah..',
-        imgaes: 'assets/pyarii.jpg',
+        imgaes: 'assets/pyarii.png',
         time: '6:09 pm',
         numbers: '12'),
     ChatsModel(
@@ -144,6 +144,27 @@ class _ClassModelState extends State<ClassModel> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(
+          title: Text(
+            "WhatsApp",
+            style: TextStyle(
+                color: const Color.fromARGB(255, 14, 14, 14),
+                fontSize: 30,
+                fontWeight: FontWeight.w600),
+          ),
+          actions: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Icon(Icons.camera_alt_outlined),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Icon(
+                Icons.more_vert,
+              ),
+            )
+          ],
+        ),
         body: ListView.builder(
             itemCount: chats.length,
             itemBuilder: (context, index) {
@@ -156,9 +177,12 @@ class _ClassModelState extends State<ClassModel> {
                 trailing: Column(
                   children: [
                     CircleAvatar(
-                      radius: 8,
+                      radius: 9,
                       backgroundColor: Colors.green.shade200,
-                      child: Text(chats[index].numbers.toString()),
+                      child: Text(
+                        chats[index].numbers.toString(),
+                        style: TextStyle(fontSize: 10),
+                      ),
                     ),
                     Text(chats[index].time.toString()),
                   ],
