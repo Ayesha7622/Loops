@@ -148,6 +148,9 @@ class _ClassModelState extends State<ClassModel> {
             itemCount: chats.length,
             itemBuilder: (context, index) {
               return ListTile(
+                leading: CircleAvatar(
+                  backgroundImage: AssetImage(chats[index].imgaes.toString()),
+                ),
                 title: Text(chats[index].name.toString()),
                 subtitle: Text(chats[index].subName.toString()),
                 trailing: Column(
