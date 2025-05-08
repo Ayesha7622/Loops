@@ -169,7 +169,8 @@ class ChildClass extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          leading: Row(
+          leading: Icon(Icons.arrow_back),
+          title: Row(
             children: [
               Padding(
                 padding: const EdgeInsets.all(8.0),
