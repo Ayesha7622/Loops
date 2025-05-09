@@ -184,7 +184,7 @@ class _ClassModelState extends State<ClassModel> {
                 leading:
                 CircleAvatar(
                   backgroundImage: AssetImage(chats[index].images.toString()),
-                );
+                ),
                 title:
                 Text(chats[index].name.toString());
                 subtitle:
