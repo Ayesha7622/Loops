@@ -197,7 +197,7 @@ class _ClassModelState extends State<ClassModel> {
                     children: [
                       CircleAvatar(
                         radius: 9,
-                        backgroundColor: Colors.green.shade200,
+                        backgroundColor: const Color.fromARGB(255, 79, 137, 81),
                         child: Text(
                           chats[index].numbers.toString(),
                           style: TextStyle(fontSize: 10),
