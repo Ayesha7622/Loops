@@ -144,7 +144,9 @@ class _ClassModelState extends State<ClassModel> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: const Color.fromARGB(255, 196, 193, 193),
         appBar: AppBar(
+          backgroundColor: const Color.fromARGB(255, 122, 121, 121),
           title: Text(
             "WhatsApp",
             style: TextStyle(
@@ -155,12 +157,16 @@ class _ClassModelState extends State<ClassModel> {
           actions: [
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Icon(Icons.camera_alt_outlined),
+              child: Icon(
+                Icons.camera_alt_outlined,
+                color: Colors.black,
+              ),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Icon(
                 Icons.more_vert,
+                color: Colors.black,
               ),
             )
           ],
@@ -168,42 +174,38 @@ class _ClassModelState extends State<ClassModel> {
         body: ListView.builder(
             itemCount: chats.length,
             itemBuilder: (context, index) {
-              return ListTile(onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => ChildClass(
-                        name: chats[index].name.toString(),
-                        subName: chats[index].subName.toString(),
-                        images: chats[index].time.toString(),
-                        time: chats[index].numbers.toString(),
-                        numbers: chats[index].images.toString(),
+              return ListTile(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ChildClass(
+                            name: chats[index].name.toString(),
+                            subName: chats[index].subName.toString(),
+                            images: chats[index].images.toString(),
+                            time: chats[index].time.toString(),
+                            numbers: chats[index].numbers.toString(),
+                          ),
+                        ));
+                  },
+                  leading: CircleAvatar(
+                    backgroundImage: AssetImage(chats[index].images.toString()),
+                  ),
+                  title: Text(chats[index].name.toString()),
+                  subtitle: Text(chats[index].subName.toString()),
+                  trailing: Column(
+                    children: [
+                      CircleAvatar(
+                        radius: 9,
+                        backgroundColor: Colors.green.shade200,
+                        child: Text(
+                          chats[index].numbers.toString(),
+                          style: TextStyle(fontSize: 10),
+                        ),
                       ),
-                    ));
-              },
-                leading:
-                CircleAvatar(
-                  backgroundImage: AssetImage(chats[index].images.toString()),
-                ),
-                title:
-                Text(chats[index].name.toString());
-                subtitle:
-                Text(chats[index].subName.toString());
-                trailing:
-                Column(
-                  children: [
-                    CircleAvatar(
-                      radius: 9,
-                      backgroundColor: Colors.green.shade200,
-                      child: Text(
-                        chats[index].numbers.toString(),
-                        style: TextStyle(fontSize: 10),
-                      ),
-                    ),
-                    Text(chats[index].time.toString()),
-                  ],
-                );
-              );
+                      Text(chats[index].time.toString()),
+                    ],
+                  ));
             }));
   }
 }
@@ -227,7 +229,9 @@ class ChildClass extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: Colors.brown.shade200,
         appBar: AppBar(
+          backgroundColor: Colors.brown.shade400,
           leading: Icon(Icons.arrow_back),
           title: Row(children: [
             Padding(
@@ -254,10 +258,13 @@ class ChildClass extends StatelessWidget {
                 width: 200,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
-                    color: Colors.grey),
+                    color: Colors.brown.shade100),
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Text(subName),
+                  child: Text(
+                    subName,
+                    style: TextStyle(fontSize: 15, color: Colors.black),
+                  ),
                 ),
               ),
             )
