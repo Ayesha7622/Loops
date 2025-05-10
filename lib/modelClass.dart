@@ -144,9 +144,9 @@ class _ClassModelState extends State<ClassModel> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: const Color.fromARGB(255, 196, 193, 193),
+        backgroundColor: const Color.fromARGB(230, 224, 224, 224),
         appBar: AppBar(
-          backgroundColor: const Color.fromARGB(255, 122, 121, 121),
+          backgroundColor: const Color.fromARGB(255, 138, 137, 137),
           title: Text(
             "WhatsApp",
             style: TextStyle(
