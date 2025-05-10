@@ -144,16 +144,26 @@ class _ClassExpandedState extends State<ClassExpanded> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.white,
+        onPressed: () {},
+        child: Icon(
+          Icons.fiber_manual_record_outlined,
+          size: 50,
+          color: const Color.fromARGB(255, 12, 74, 125),
+        ),
+      ),
       body: Column(children: [
         Expanded(
             flex: 10,
             child: Container(
               color: Colors.black,
               child: AppBar(
+                  backgroundColor: Colors.black,
                   title: Text(
                     "WhatsApp",
                     style: TextStyle(
-                        color: const Color.fromARGB(255, 14, 14, 14),
+                        color: const Color.fromARGB(255, 247, 244, 244),
                         fontSize: 30,
                         fontWeight: FontWeight.w600),
                   ),
@@ -162,19 +172,77 @@ class _ClassExpandedState extends State<ClassExpanded> {
                       padding: const EdgeInsets.all(8.0),
                       child: Icon(
                         Icons.camera_alt_outlined,
-                        color: Colors.black,
+                        color: const Color.fromARGB(255, 247, 245, 245),
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Icon(
                         Icons.more_vert,
-                        color: Colors.black,
+                        color: const Color.fromARGB(255, 240, 238, 238),
                       ),
                     )
                   ]),
             )),
-        Expanded(flex: 80, child: Container(color: Colors.black)),
+        Expanded(
+            flex: 80,
+            child: Container(
+              color: Colors.black,
+              child: ListView.builder(
+                  itemCount: chats.length,
+                  itemBuilder: (context, index) {
+                    return ListTile(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ChildClass(
+                                  name: chats[index].name.toString(),
+                                  subName: chats[index].subName.toString(),
+                                  images: chats[index].images.toString(),
+                                  time: chats[index].time.toString(),
+                                  numbers: chats[index].numbers.toString(),
+                                ),
+                              ));
+                        },
+                        leading: CircleAvatar(
+                          backgroundImage:
+                              AssetImage(chats[index].images.toString()),
+                        ),
+                        title: Text(
+                          chats[index].name.toString(),
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        subtitle: Text(
+                          chats[index].subName.toString(),
+                          style: TextStyle(color: Colors.grey),
+                        ),
+                        trailing: Column(
+                          children: [
+                            SizedBox(
+                              height: 5,
+                            ),
+                            CircleAvatar(
+                              radius: 9,
+                              backgroundColor:
+                                  const Color.fromARGB(255, 79, 137, 81),
+                              child: Text(
+                                chats[index].numbers.toString(),
+                                style: TextStyle(
+                                    fontSize: 10, color: Colors.black),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 7,
+                            ),
+                            Text(
+                              chats[index].time.toString(),
+                              style: TextStyle(color: Colors.grey),
+                            ),
+                          ],
+                        ));
+                  }),
+            )),
         Expanded(
           flex: 10,
           child: Container(
@@ -187,7 +255,7 @@ class _ClassExpandedState extends State<ClassExpanded> {
                     Icon(
                       Icons.chat_sharp,
                       color: Colors.white,
-                      size: 35,
+                      size: 30,
                     ),
                     Text(
                       'Chats',
@@ -200,7 +268,7 @@ class _ClassExpandedState extends State<ClassExpanded> {
                     Icon(
                       Icons.update_sharp,
                       color: Colors.white,
-                      size: 35,
+                      size: 30,
                     ),
                     Text(
                       'Updates',
@@ -213,7 +281,7 @@ class _ClassExpandedState extends State<ClassExpanded> {
                     Icon(
                       Icons.groups,
                       color: Colors.white,
-                      size: 35,
+                      size: 30,
                     ),
                     Text(
                       'Communities',
@@ -226,7 +294,7 @@ class _ClassExpandedState extends State<ClassExpanded> {
                     Icon(
                       Icons.call,
                       color: Colors.white,
-                      size: 35,
+                      size: 30,
                     ),
                     Text(
                       'Calls',
@@ -263,5 +331,81 @@ class _ClassExpandedState extends State<ClassExpanded> {
         )
       ]),
     );
+  }
+}
+
+class ChildClass extends StatelessWidget {
+  String name;
+  String subName;
+  String images;
+  String numbers;
+  String time;
+
+  ChildClass({
+    super.key,
+    required this.name,
+    required this.images,
+    required this.subName,
+    required this.numbers,
+    required this.time,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        backgroundColor: const Color.fromARGB(255, 123, 132, 137),
+        appBar: AppBar(
+          backgroundColor: Colors.grey.shade400,
+          leading: IconButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: Icon(Icons.arrow_back)),
+          title: Row(children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: CircleAvatar(
+                backgroundImage: AssetImage(images),
+              ),
+            ),
+            Text(
+              name,
+              style: TextStyle(fontSize: 20),
+            ),
+          ]),
+        ),
+        body: Column(
+          children: [
+            SizedBox(
+              height: 30,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                height: 60,
+                width: 200,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: const Color.fromARGB(255, 156, 155, 154)),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    subName,
+                    style: TextStyle(fontSize: 15, color: Colors.black),
+                  ),
+                ),
+              ),
+            )
+          ],
+        ));
+  }
+}
+
+class ClassChild extends StatelessWidget {
+  const ClassChild({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold();
   }
 }
