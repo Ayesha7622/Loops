@@ -406,6 +406,8 @@ class ClassChild extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body: Icon(Icons.ac_unit_sharp),
+    );
   }
 }
